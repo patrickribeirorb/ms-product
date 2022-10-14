@@ -1,4 +1,4 @@
-package br.dev.patrick.product.shared;
+package br.dev.patrick.product.adapter.out.persistence;
 
 import org.hibernate.annotations.GenericGenerator;
 

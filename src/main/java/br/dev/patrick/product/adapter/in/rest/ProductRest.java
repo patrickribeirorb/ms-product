@@ -1,4 +1,4 @@
-package br.dev.patrick.product.api;
+package br.dev.patrick.product.adapter.in.api;
 
 import br.dev.patrick.product.application.usecase.FindProductsUseCase;
 import io.smallrye.mutiny.Uni;

@@ -1,7 +1,4 @@
-package br.dev.patrick.product.domain;
-
-import br.dev.patrick.product.shared.AuditableEntity;
-import br.dev.patrick.product.shared.DefaultEntity;
+package br.dev.patrick.product.adapter.out.persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,9 +18,11 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import static br.dev.patrick.product.domain.Product.*;
+
 @Entity
 @Table(name = "products")
-public class ProductEntity extends AuditableEntity implements DefaultEntity, Product {
+public class ProductEntity extends AuditableEntity implements DefaultEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -59,7 +58,6 @@ public class ProductEntity extends AuditableEntity implements DefaultEntity, Pro
         this.id = id;
     }
 
-    @Override
     public String getName() {
         return name;
     }
@@ -68,22 +66,18 @@ public class ProductEntity extends AuditableEntity implements DefaultEntity, Pro
         this.name = name;
     }
 
-    @Override
-    public Type getType() {
+    public TypeEntity getType() {
         return type;
     }
 
-    @Override
-    public void setType(Type type) {
-        this.type = new TypeEntity(type);
+    public void setType(TypeEntity type) {
+        this.type = type;
     }
 
-    @Override
     public Collection<GroupEntity> getGroups() {
         return groups;
     }
 
-    @Override
     public void setGroups(Collection<? extends Group> groups) {
         if (Objects.isNull(groups)) this.groups = null;
         this.groups = groups.stream()
@@ -91,12 +85,10 @@ public class ProductEntity extends AuditableEntity implements DefaultEntity, Pro
                 .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
-    @Override
     public Status getStatus() {
         return status;
     }
 
-    @Override
     public void setStatus(Status status) {
         this.status = status;
     }

@@ -1,4 +1,4 @@
-package br.dev.patrick.product.api;
+package br.dev.patrick.product.adapter.in.api;
 
 import io.smallrye.mutiny.Uni;
 
