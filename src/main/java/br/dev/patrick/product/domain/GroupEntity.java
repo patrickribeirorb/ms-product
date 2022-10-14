@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "groups")
+@Table(name = "product_groups")
 public class GroupEntity implements Product.Group, DefaultEntity {
 
     @Id

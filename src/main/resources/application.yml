@@ -1,0 +1,17 @@
+quarkus:
+  hibernate-orm:
+    dialect: org.hibernate.dialect.PostgreSQL91Dialect
+    log:
+      sql: false
+      format-sql: false
+    database:
+      generation: none
+      default-catalog: product
+      default-schema: product
+
+  datasource:
+    username: msproduct
+    password: K_JFn*3z
+    reactive:
+      url: postgresql://38.242.215.156:6543/patrickdevbr
+    db-kind: postgresql
