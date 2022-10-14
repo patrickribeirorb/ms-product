@@ -5,6 +5,8 @@ import br.dev.patrick.product.shared.DefaultEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -37,13 +39,14 @@ public class ProductEntity extends AuditableEntity implements DefaultEntity, Pro
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-            name = "product_groups",
+            name = "associated_groups",
             joinColumns = @JoinColumn(name = "prod_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id")
     )
     private Collection<GroupEntity> groups;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     @Override

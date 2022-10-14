@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
-@Table(name = "types")
+@Table(name = "product_types")
 public class TypeEntity implements Product.Type, DefaultEntity {
 
     @Id

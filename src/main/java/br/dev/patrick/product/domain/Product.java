@@ -1,11 +1,11 @@
 package br.dev.patrick.product.domain;
 
 import br.dev.patrick.product.shared.Auditable;
-import br.dev.patrick.product.shared.DomainWithId;
+import br.dev.patrick.product.shared.DefaultDomain;
 
 import java.util.Collection;
 
-public interface Product extends DomainWithId, Auditable {
+public interface Product extends DefaultDomain, Auditable {
 
     String getName();
     void setName(String name);
@@ -24,7 +24,7 @@ public interface Product extends DomainWithId, Auditable {
         INACTIVE
     }
 
-    interface Type extends DomainWithId {
+    interface Type extends DefaultDomain {
         String getDescription();
         void setDescription(String description);
 
@@ -32,7 +32,7 @@ public interface Product extends DomainWithId, Auditable {
         void setShortDescription(String shortDescription);
     }
 
-    interface Group extends DomainWithId {
+    interface Group extends DefaultDomain {
         String getDescription();
         void setDescription(String description);
     }
