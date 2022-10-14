@@ -1,4 +1,4 @@
-package br.dev.patrick.product.adapter.out.persistence;
+package br.dev.patrick.product.adapter.out.persistence.entities;
 
 import br.dev.patrick.product.domain.Auditable;
 

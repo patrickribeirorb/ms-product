@@ -1,26 +1,19 @@
 package br.dev.patrick.product.application.usecase;
 
-import br.dev.patrick.product.domain.ProductEntity;
-import br.dev.patrick.product.infrastructure.ProductRepository;
+import br.dev.patrick.product.domain.Product;
 import io.smallrye.mutiny.Uni;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Collection;
 
-public sealed interface FindProductsUseCase permits FindProductsUseCaseImpl {
+public interface FindProductsUseCase {
 
-    Uni<List<ProductEntity>> execute();
-}
+    Uni<Collection<Product>> findProducts(@Valid Command command);
 
-@ApplicationScoped
-non-sealed class FindProductsUseCaseImpl implements FindProductsUseCase {
-
-    @Inject
-    ProductRepository productRepository;
-
-    @Override
-    public Uni<List<ProductEntity>> execute() {
-        return productRepository.listAll();
+    record Command(
+            @NotNull(message = "{Product.Status.NotNull}")
+            Product.Status status
+    ) {
     }
 }

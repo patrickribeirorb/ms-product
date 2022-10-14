@@ -1,4 +1,4 @@
-package br.dev.patrick.product.shared;
+package br.dev.patrick.product.domain;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package br.dev.patrick.product.adapter.out.persistence;
+package br.dev.patrick.product.adapter.out.persistence.entities;
 
 import br.dev.patrick.product.domain.Product;
 
@@ -12,7 +12,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "product_groups")
-public class GroupEntity implements Product.Group, DefaultEntity {
+public class GroupEntity implements DefaultEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -46,12 +46,10 @@ public class GroupEntity implements Product.Group, DefaultEntity {
         this.id = id;
     }
 
-    @Override
     public String getDescription() {
         return description;
     }
 
-    @Override
     public void setDescription(String description) {
         this.description = description;
     }
